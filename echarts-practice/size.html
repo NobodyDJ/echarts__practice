@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="echarts.js"></script>
+    <title>图表容器及大小</title>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+    title: {
+        text: 'ECharts 入门示例'
+    },
+    tooltip: {},
+    legend: {
+        data: ['销量']
+    },
+    xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+    },
+    yAxis: {},
+    series: [
+        {
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }
+    ]
+};
+    myChart.setOption(option);
+    // 这里是用来响应容器的宽度或高度发生改变时，图表发生变化
+    // window.onresize = function(){
+    //     myChart.resize();
+    // }
+    myChart.resize({
+        width:600,
+        height:400
+    })
+    // setTimeout(() => {
+    //     myChart.dispose() //销毁图表
+    // }, 3000);
+</script>
+<style>
+    #main,
+    html,
+    body {
+        width: 100%;
+        
+    }
+    #main {
+        height: 500px;
+    }
+</style>
+</html>
